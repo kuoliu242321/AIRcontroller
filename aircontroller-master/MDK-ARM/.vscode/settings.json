@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "aircraft_manager.h": "c",
-        "stm32f411_lee_conf.h": "c",
-        "control.h": "c",
-        "pid.h": "c"
-    }
-}

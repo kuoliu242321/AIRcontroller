@@ -1,0 +1,12 @@
+renew\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c
+renew\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+renew\port.o: D:\STM32\MDK\Core\ARM\ARMCC\Bin\..\include\stddef.h
+renew\port.o: D:\STM32\MDK\Core\ARM\ARMCC\Bin\..\include\stdint.h
+renew\port.o: ../Core/Inc/FreeRTOSConfig.h
+renew\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+renew\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+renew\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+renew\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+renew\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+renew\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+renew\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

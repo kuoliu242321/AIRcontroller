@@ -1,0 +1,15 @@
+renew\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/queue.c
+renew\queue.o: D:\STM32\MDK\Core\ARM\ARMCC\Bin\..\include\stdlib.h
+renew\queue.o: D:\STM32\MDK\Core\ARM\ARMCC\Bin\..\include\string.h
+renew\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+renew\queue.o: D:\STM32\MDK\Core\ARM\ARMCC\Bin\..\include\stddef.h
+renew\queue.o: D:\STM32\MDK\Core\ARM\ARMCC\Bin\..\include\stdint.h
+renew\queue.o: ../Core/Inc/FreeRTOSConfig.h
+renew\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+renew\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+renew\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+renew\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+renew\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+renew\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+renew\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+renew\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h

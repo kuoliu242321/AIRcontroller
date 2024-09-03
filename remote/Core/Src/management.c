@@ -10,7 +10,7 @@ void UI_Display(void)
 {
 	
 	OLED_Clear();
-	OLED_ShowString(20,7,"test21.10.13",8);
+	OLED_ShowString(20,7,"test24.4.13",8);
 	OLED_ShowString(0,2,"Init Over",8);
 	
 	OLED_ShowString(0,6,"----------------",8);

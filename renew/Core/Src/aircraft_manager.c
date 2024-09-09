@@ -93,8 +93,6 @@ void Aircraft_Task_Manage(void)
 				
 				printf("Motor Start");
 				osEventFlagsSet(CanFlyEventHandle,MOTOR_Status_Flag);
-
-
 			}		
 		}
 		
@@ -111,8 +109,6 @@ void Aircraft_Task_Manage(void)
 		}
 		
 //其他标志位检测 对应操作后续补充
-
-		
 }
 
 

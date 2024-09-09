@@ -86,7 +86,7 @@ void Control(FLOAT_POSTURE *att_in,FLOAT_XYZ *gyr_in, REMOTE_DATA_TYPEDEF *RemDa
 	
 	PID_Process(&PID_YAW_Angle,RemData_in->YAW,att_in->yaw); 
 		
-	//动力分配（自己DIY是动力分配一定要好好研究，动力分配搞错飞机肯定飞不起来!!!）
+	//动力分配
 	if(RemData_in->THRUST>1150)//当油门大于1150时和飞机解锁时动力分配才生效
 	{                                                                                 
 		Motor_PWM.Motor1_Compare = RemData_in->THRUST - PID_ROL_Rate.PID_Out + PID_PIT_Rate.PID_Out + PID_YAW_Angle.PID_Out;   
@@ -282,12 +282,13 @@ void AirCraft_Control_Task(void)
 	while(mpu_dmp_get_data(&Measurement_Angle.pit,&Measurement_Angle.rol,&Measurement_Angle.yaw));
 	
 			
-	//temp=MPU_Get_Temperature();		
+	//temp=MPU_Get_Temperature();
 	
 	//控制任务 未改完输入输出
 	Control(&Measurement_Angle,&Measurement_Gyroscope,&Remote_Date);
 	
 	
+}
 /*
 	//test 
 	printf("Test 10.11 of Lee\r\n");
@@ -313,7 +314,7 @@ void AirCraft_Control_Task(void)
 */
 
 
-}
+
 
 
 

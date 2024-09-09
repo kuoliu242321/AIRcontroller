@@ -83,7 +83,7 @@ uint8_t SendTestSignal(void)
 	{
 		//多发几次？
 		// 连接状态标志位 
-		osEventFlagsSet(REM_StatusFlagHandle,LINK_Status_Flag);
+		osEventFlagsSet(REM_StatusFlagHandle,LINK_Status_Flag);//0x01
 		osDelay(500);
 		return 0;
 	}
@@ -113,7 +113,7 @@ uint8_t WaitResultofTest(void)
 			
 			else if((rx_buf[0]==Test_Res_OK)&&(rx_buf[11]==PACK_END))
 			{
-				osEventFlagsSet(REM_StatusFlagHandle,TASK_Canrun_Flag);
+				osEventFlagsSet(REM_StatusFlagHandle,TASK_Canrun_Flag);//0x10;
 				osDelay(500);
 				//界面显示可以起飞
 				//释放可以起飞的信号量或者flag				
@@ -123,7 +123,7 @@ uint8_t WaitResultofTest(void)
 			return 3;
 	}	
 	else
-		return 4;
+		return 4;//没收到数据
 }
 
 
@@ -167,7 +167,7 @@ void radiolinkTask(void)
 				if(statusCount > 10)//连续10次发送失败
 				{
 					statusCount = 0;
-					osEventFlagsClear(REM_StatusFlagHandle,LINK_Status_Flag);
+					osEventFlagsClear(REM_StatusFlagHandle,LINK_Status_Flag);//clear 0X01 link
 					//超过十次 停止重连
 					//界面显示连接失败超过十次，停止连接 显示连接失败1
 				}		
@@ -183,7 +183,6 @@ void radiolinkTask(void)
 				}
 		}
 		CMD_TxNub++;
-		/*1000ms统计一次收发失败次数   如何实现呀！V2版本没有获取节拍功能*/
 		//现在是每100次统计一次失败次数
 		if(CMD_TxNub>100)
 		{
@@ -193,7 +192,7 @@ void radiolinkTask(void)
 		}				
 			
 }
-
+		/*1000ms统计一次收发失败次数   如何实现呀！V2版本没有获取节拍功能*/
 /*获取丢包个数*/
 uint16_t radioinkfailTxCount(void)
 {

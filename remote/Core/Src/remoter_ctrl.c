@@ -27,7 +27,7 @@ joystickFlyf_t  percent;
 
 /*
 para： PACK_START 帧头 判别是按键值还是数据值
-			PACK_ADDITION 按键值 则为哪个按键 数据则为方向 先搞个NULL吧
+		PACK_ADDITION 按键值 则为哪个按键 数据则为方向 先搞个NULL
 */
 void Packdata(uint8_t PACK_START,uint8_t PACK_ADDITION)
 {	
@@ -60,7 +60,6 @@ void Packdata(uint8_t PACK_START,uint8_t PACK_ADDITION)
 		packetData[0] = PACK_START;
 		packetData[1] = PACK_ADDITION;	
 	}
-	
 	packetData[10] = packetNum;					  //这个非常重要，这是防止飞机逃脱遥控的保证
 	packetData[11] = PACK_END;						  //校验码：  0xA5 ：1010 0101
 	
@@ -86,34 +85,28 @@ float limit(float value,float min, float max)
 /*发送飞控命令任务*/
 void commanderTask(void)
 {
-
 		
 	ADCtoFlyDataPercent(&percent);
 	
 	//THRUST  使-1 ~ 1 的百分比 转化到 0~100 的范围值 传输时还要变换到1000~2000 的占空比值
-	flydata.thrust = percent.thrust * ALT_THRUST;
-	flydata.thrust += ALT_THRUST;
+	flydata.thrust = percent.thrust * ALT_THRUST;//(0~4096)*
+	flydata.thrust += ALT_THRUST;//(-1~1)*50+50=(0~100)
 	flydata.thrust = limit(flydata.thrust, MIN_THRUST, LOW_SPEED_THRUST);
-	
+	//限制（25-95）
 	//ROLL
-	flydata.roll = percent.roll * LOW_SPEED_ROLL;
+	flydata.roll = percent.roll * LOW_SPEED_ROLL;//(-10~10)
 	flydata.roll = limit(flydata.roll, -LOW_SPEED_ROLL, LOW_SPEED_ROLL);
 	//PITCH
-	flydata.pitch = percent.pitch * LOW_SPEED_PITCH;
+	flydata.pitch = percent.pitch * LOW_SPEED_PITCH;//(-10~10)
 	flydata.pitch = limit(flydata.pitch, -LOW_SPEED_PITCH, LOW_SPEED_PITCH);
 	//YAW
-	flydata.yaw = percent.yaw * MAX_YAW;
+	flydata.yaw = percent.yaw * MAX_YAW;//(-45~45)
 	flydata.yaw = limit(flydata.yaw, -MAX_YAW, MAX_YAW);
 	
-
-	/******
-	以下内容自行修改为专属代码	
-	*********/	
 	Joystick1_DIR =  getJoystick1Dir(1);
 	Joystick2_DIR =  getJoystick2Dir(1); // 组合成一个字节发送
 	/*发送飞控数据*/
 	Packdata(PACK_DATE,((Joystick1_DIR<<4)|Joystick2_DIR));
 	
-
 }
 

@@ -15,9 +15,6 @@
 
 //flag
 #define LINK_Status_Flag  0x01
-
-
-
 #define TASK_Canrun_Flag   0x10
 
 

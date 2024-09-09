@@ -81,7 +81,7 @@ void ADCtoFlyDataPercent(joystickFlyf_t *percent)
 		percent->thrust = (float)adcValue/(float)(THRUST_RANGE_POS-MID_DB_THRUST+DB_RANGE);
 	else
 		percent->thrust = (float)adcValue/(float)(THRUST_RANGE_NEG-MID_DB_THRUST+DB_RANGE);
-	
+	//-((0~4096)-2000)/(2000-150+80)=(-1~1)
 	//ROLL  左X  左— 右+
 	adcValue = (int16_t)ADC_ConvertedValue[ADC_ROLL] - ROLL_MID;
 	adcValue = deadband(adcValue, MID_DB_ROLL);
@@ -89,7 +89,7 @@ void ADCtoFlyDataPercent(joystickFlyf_t *percent)
 		percent->roll = (float)adcValue/(float)(ROLL_RANGE_POS-MID_DB_ROLL+DB_RANGE);
 	else
 		percent->roll = (float)adcValue/(float)(ROLL_RANGE_NEG-MID_DB_ROLL+DB_RANGE);
-	
+	//((0~4096)-2000)/(2000-150+80)=(-1~1)
 	//PITCH  右Y 上+ 下-
 	adcValue = (int16_t)ADC_ConvertedValue[ADC_PITCH] - PITCH_MID;
 	adcValue = -adcValue;  //右Y 遥感上顶 0  下顶 5096
@@ -98,7 +98,7 @@ void ADCtoFlyDataPercent(joystickFlyf_t *percent)
 		percent->pitch = (float)adcValue/(float)(PITCH_RANGE_POS-MID_DB_PITCH+DB_RANGE);
 	else
 		percent->pitch = (float)adcValue/(float)(PITCH_RANGE_NEG-MID_DB_PITCH+DB_RANGE);
-	
+	//-((0~4096)-2000)/(2000-150+80)=(-1~1)
 	//YAW			右X  左— 右+
 	adcValue = (int16_t)ADC_ConvertedValue[ADC_YAW] - YAW_MID;
 	adcValue = deadband(adcValue, MID_DB_YAW);
@@ -106,7 +106,7 @@ void ADCtoFlyDataPercent(joystickFlyf_t *percent)
 		percent->yaw = (float)adcValue/(float)(YAW_RANGE_POS-MID_DB_YAW+DB_RANGE);
 	else
 		percent->yaw = (float)adcValue/(float)(YAW_RANGE_NEG-MID_DB_YAW+DB_RANGE);
-
+    //((0~4096)-2000)/(2000-150+80)=(-1~1)
 }
 
 

@@ -11,7 +11,7 @@
 #define Flightspeed	1
 
 // remoter to aircraft 帧头
-#define PACK_DATE    0xA1 //角度数据帧   (int16)((persent*Rang +500)*100)
+#define PACK_DATE    0xA1 //角度数据帧                                   (int16)((persent*Rang +500)*100)
 #define PACK_KEY     0xA8 //按键数据帧
 #define PACK_TEST    0xA2 //测试帧，检查连接情况，给飞控发送开始自检指令
 #define PACK_ERROR   0xA3 //发送队列取出数据失败

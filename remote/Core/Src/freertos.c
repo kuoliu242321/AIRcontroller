@@ -172,10 +172,10 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  LED3_Tog();
+        LED3_Tog();
 		LED2_Tog();
 		LED1_Tog();
-		//Task_Management();
+		Task_Management();
     osDelay(1000);
   }
   /* USER CODE END StartDefaultTask */
@@ -213,14 +213,13 @@ void CommanderSend(void *argument)
   /* Infinite loop */
   for(;;)
   {
-		//队列阻塞创建管理函数同时运行函数
-	
 		commanderTask();
     osDelay(10);
   }
   /* USER CODE END CommanderSend */
 }
-
+		//队列阻塞创建管理函数同时运行函数
+	
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
 

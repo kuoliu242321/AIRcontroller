@@ -126,7 +126,7 @@ uint8_t NRF24L01_TxPacket(uint8_t *txbuf)
 		NRF24L01_Write_Reg(FLUSH_TX,0xff);  //清除TX FIFO寄存器 
 		return 1; 
 	}
-	if(sta&TX_OK)                           //发送完成
+	if(sta&TX_OK)                           //发送完成1<<5
 	{
 		return 0;
 	}

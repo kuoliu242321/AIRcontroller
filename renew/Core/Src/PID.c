@@ -20,8 +20,7 @@ float test_rate_pit_P = PID_PIT_Rate_P;
 	
  */
 
-void PID_Arg_Init(PID* pitch_angle,PID* roll_angle,
-									PID* pitch_rate ,PID* roll_rate ,PID* yaw_angle)
+void PID_Arg_Init(PID* pitch_angle,PID* roll_angle,PID* pitch_rate ,PID* roll_rate ,PID* yaw_angle)
 {
 	//pitch angle
 	pitch_angle->LastError = 0;        //上次偏差值

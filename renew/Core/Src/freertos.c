@@ -212,7 +212,7 @@ void controlTask(void *argument)
   {
 		//printf("control Task running\r\n");
 		AirCraft_Control_Task();
-    osDelay(5);
+        osDelay(5);
   }
   /* USER CODE END controlTask */
 }

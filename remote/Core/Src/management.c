@@ -10,7 +10,7 @@ void UI_Display(void)
 {
 	
 	OLED_Clear();
-	OLED_ShowString(20,7,"test24.4.13",8);
+	OLED_ShowString(20,7,"test24.5.13",8);
 	OLED_ShowString(0,2,"Init Over",8);
 	
 	OLED_ShowString(0,6,"----------------",8);
@@ -76,12 +76,7 @@ void Task_Management(void)
 		osThreadSuspend(CommandersendHandle);
 		//显示连接失败
 	}
-	
-	
 
-	
-	
-	
 }
 
 
